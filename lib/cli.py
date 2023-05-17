@@ -3,14 +3,12 @@ import sqlite3
 conn = sqlite3.connect('project.db')
 cursor = conn.cursor()
 
-# Create 'users' table
 cursor.execute("CREATE TABLE IF NOT EXISTS users ("
                "id INTEGER PRIMARY KEY AUTOINCREMENT,"
                "username TEXT,"
                "email TEXT"
                ")")
 
-# Create 'words' table
 cursor.execute("CREATE TABLE IF NOT EXISTS words ("
                "id INTEGER PRIMARY KEY AUTOINCREMENT,"
                "word_type TEXT,"
@@ -19,7 +17,6 @@ cursor.execute("CREATE TABLE IF NOT EXISTS words ("
                "FOREIGN KEY (user_id) REFERENCES users(id)"
                ")")
 
-# Create 'completed_stories' table
 cursor.execute("CREATE TABLE IF NOT EXISTS completed_stories ("
                "id INTEGER PRIMARY KEY AUTOINCREMENT,"
                "title TEXT,"
