@@ -21,6 +21,8 @@ for i in range(len(words)):
         part_of_speech = words[i][1:-1]
         user_input = input(f"Enter a {part_of_speech}: ")
         words[i] = user_input
+        cursor.execute("INSERT INTO words(word_type, word_text) VALUES (?, ?)",
+                        (part_of_speech, user_input))
 
 completed_story = ' '.join(words)
 
